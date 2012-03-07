@@ -15,7 +15,7 @@ class php5-fpm {
 
     service { 'php5-fpm':
         ensure      => running,
-        hasstatus    => true,
+        hasstatus   => true,
         enable      => true,
         require     => File['/etc/php5/fpm/php-fpm.conf'],
         restart     => '/etc/init.d/php5-fpm reload',
