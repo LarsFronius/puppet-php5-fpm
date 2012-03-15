@@ -42,8 +42,8 @@ define php5-fpm::config ( $ensure = 'present', $content = '', $order='500') {
     exec { 'cleanup-pool':
         cwd     => '/etc/php5/fpm/pool.d',
         path    => '/usr/bin:/usr/sbin:/bin',
-        command => "find -name '[^0-9]*.conf' -exec rm {} +",
-        unless  => 'test -z $(find -name '[^0-9]*.conf')',
+        command => 'find -name \'[^0-9]*.conf\' -exec rm {} +',
+        unless  => 'test -z $(find -name \'[^0-9]*.conf\')',
         notify  => Service['php5-fpm'],
         require => Package['php5-fpm']
     }
